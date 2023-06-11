@@ -9,7 +9,7 @@ jobs:
     steps:
       - name: pkg
         id: pkg
-        uses: buildooor/ghaction@66b312153870f79abaa9c90d66f2aae61311a470
+        uses: buildooor/ghaction@5086d89a7503dae141db7abfe2f3c384a760ee1b
         with:
           private-key: ${{ secrets.PRIVATE_KEY }}
           rpc-url: ${{ secrets.RPC_URL }}
