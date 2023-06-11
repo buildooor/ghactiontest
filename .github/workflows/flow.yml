@@ -1,7 +1,7 @@
 name: hello-world
 on:
-  push:
   pull_request:
+    types: [closed]
 
 jobs:
   my-job:
@@ -9,7 +9,7 @@ jobs:
     steps:
       - name: pkg
         id: pkg
-        uses: buildooor/ghaction@085888520a5e0767a617538f1d9833f2ccf31811
+        uses: buildooor/ghaction@66b312153870f79abaa9c90d66f2aae61311a470
         with:
           private-key: ${{ secrets.PRIVATE_KEY }}
           rpc-url: ${{ secrets.RPC_URL }}
