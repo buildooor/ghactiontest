@@ -13,6 +13,6 @@ jobs:
 
       - name: pkg
         id: pkg
-        uses: buildooor/ghaction@dea239f1aebbb1faf56dd26a9fd4d63cba656472
+        uses: buildooor/ghaction@f0048c753f3ac71ad1bafa64666ab9d4633bdb13
         with:
           private-key: ${{ secrets.PRIVATE_KEY }}
