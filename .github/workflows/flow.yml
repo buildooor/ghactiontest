@@ -1,6 +1,7 @@
 name: hello-world
 on:
   push:
+  pull_request:
 
 jobs:
   my-job:
@@ -8,10 +9,9 @@ jobs:
     steps:
       - name: pkg
         id: pkg
-        uses: buildooor/ghaction@dc9a087f45e6e4fda553ba8658c74f2b8f4eaff7
+        uses: buildooor/ghaction@43e5dedda48ee5b926d9f9295f69c23131d040e6
         with:
           private-key: ${{ secrets.PRIVATE_KEY }}
           rpc-url: ${{ secrets.RPC_URL }}
           network: sepolia
           branch: master
-          on-pull-request-merged: true
