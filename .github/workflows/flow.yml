@@ -1,20 +1,17 @@
 name: hello-world
 on:
-  pull_request:
-    types: [closed]
+  push:
 
 jobs:
   my-job:
-    if: github.ref_name == 'master' && github.event_name == 'pull_request' && github.event.action == 'closed' && github.event.pull_request.merged == true
     runs-on: ubuntu-latest
     steps:
-      - name: my-step
-        run: echo "https://github.com/${{github.repository}} https://github.com/buildooor/opgh/pull/${{github.event.number}} branch ${{github.ref_name}} username ${{github.event.pull_request.user.login}}"
-
       - name: pkg
         id: pkg
-        uses: buildooor/ghaction@1cfdf5b8d8d4facc97b303402b6bb59cef5e0053
+        uses: buildooor/ghaction@cd6ed642bb6db9ee55da1347fed59c67f4813ffa
         with:
           private-key: ${{ secrets.PRIVATE_KEY }}
           rpc-url: ${{ secrets.RPC_URL }}
           network: sepolia
+          branch: master
+          on-pull-request-merged: true
