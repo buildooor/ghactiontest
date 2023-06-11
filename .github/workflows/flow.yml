@@ -1,0 +1,20 @@
+name: hello-world
+on:
+  pull_request:
+    types: [closed]
+
+jobs:
+  my-job:
+    if: github.ref_name == 'master' && github.event_name == 'pull_request' && github.event.action == 'closed' && github.event.pull_request.merged == true
+    runs-on: ubuntu-latest
+    steps:
+      - name: my-step
+        run: echo "https://github.com/${{github.repository}} https://github.com/buildooor/opgh/pull/${{github.event.number}} branch ${{github.ref_name}} username ${{github.event.pull_request.user.login}}"
+
+      - name: pkg
+        id: pkg
+        users: buildooor/ghaction@a93cf965282e17bfc152d9608eff1f21b825eb18
+        with:
+          private-key: ${{ secrets.PRIVATE_KEY }}
+      - name: Hash
+        run: echo "hash: ${{ steps.pkg.outputs.hash }}"
