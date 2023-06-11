@@ -7,9 +7,9 @@ jobs:
   my-job:
     runs-on: ubuntu-latest
     steps:
-      - name: pkg
-        id: pkg
-        uses: buildooor/ghaction@1c1bcbabe97bd24fde3f8739bd069ea6b803d2dd
+      - name: Attestation
+        id: attestation
+        uses: buildooor/github-attestation-action@master
         with:
           private-key: ${{ secrets.PRIVATE_KEY }}
           rpc-url: ${{ secrets.RPC_URL }}
